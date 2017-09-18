@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+  <h1>
+    {{title}}
+  </h1>
+
+  <hr>
+  
+  <h2>Favorite color</h2>
+  <div id="box"  [style.backgroundColor]="favoriteColor">{{favoriteColor}}</div>
+  <button type="button" (click)="setColor('blue')" >Blue</button>
+  <button type="button" (click)="setColor('green')" >Green</button>
+  <button type="button" (click)="setColor('purple')" >Pourple</button>
+  <button type="button" (click)="setColor('#800000')" >BNB</button>
+  <br>
+  <button type="button" (click)="updateColor()" >Update</button>
+
+  <hr>
+
+  <h2>Favorite number</h2>
+  
+  <hr>
+
