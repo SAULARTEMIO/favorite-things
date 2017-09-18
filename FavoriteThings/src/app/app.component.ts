@@ -9,32 +9,34 @@ import * as firebase from 'firebase/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
 
   title = 'Favorite Things';
   favoriteColor = 'pink';
   favoriteNumber = 0;
 
   constructor(db: AngularFireDatabase) {
-     
-      }
+  
+  }
 
-  
-  
+
+
   ngOnInit(): void {
-    firebase.database().ref().child('color').on('value', 
-    (snapshot: firebase.database.DataSnapshot) => {
+    firebase.database().ref().child('color').on('value', (snapshot: firebase.database.DataSnapshot) => {
     this.favoriteColor = snapshot.val();
-    })
-        
-      }
+    });
+
+    firebase.database().ref().child('number').on('value', (snapshot: firebase.database.DataSnapshot) => {
+    this.favoriteNumber = snapshot.val();
+    });
+  }
 
   ngOnDestroy(): void {
-        
+
     firebase.database().ref().child('color').off();
     
   }
-  
+
 
   setColor(selectedColor: string): void {
     console.log('You selecte the color ' + selectedColor );    
@@ -45,7 +47,8 @@ export class AppComponent implements OnInit, OnDestroy{
 
   setNumber(newFavoriteNumber: number): void {
     console.log('New favorite number');
-    this.favoriteNumber = newFavoriteNumber;
+    firebase.database().ref().child('number').set(newFavoriteNumber);
+    
   }
 
 }
