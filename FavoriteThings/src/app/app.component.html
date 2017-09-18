@@ -17,7 +17,12 @@
 
   <hr>
 
-  <h2>Favorite number</h2>
+  <h2>Favorite number = {{favoriteNumber}}</h2>
+  <button type="button" (click)="setNumber(favoriteNumber + 1)" >Up</button>
+  <button type="button" (click)="setNumber(favoriteNumber - 1)" >Down</button>
+  <button type="button" (click)="setNumber(0)" >Reset</button>
+
+  
   
   <hr>
 
